@@ -43,8 +43,9 @@ def retrieveChunks (questions: str):
 
 # get all user questions from history
 def userAllMesages (question:str, history:list[dict]):
+     print(history)
      #make the user messages in one sitring to get better chunks
-     historyUserQuestions="\n".join( m["content"] for m in history if m["role"] == "user")
+     historyUserQuestions="\n".join( m["content"][0]['text'] for m in history if m["role"] == "user")
      allUserQuestions = historyUserQuestions + '\n' + question
      return allUserQuestions
 
